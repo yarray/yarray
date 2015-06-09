@@ -12,9 +12,37 @@ Tools for front-end development evolve a lot these years. Besides WebStorm, whic
 
 *Notice: The testing in this section is performed a year ago, so may be a bit outdated. Updates should be taken soon.*
 
-The first requirement is indenting. Native indenting for javascript seems not always work. [JavaScript-Indent](https://github.com/vim-scripts/JavaScript-Indent) and [pangloss/vim-javascript](https://github.com/pangloss/vim-javascript) are two frequently mentioned options. The former is quite old. According to my test the later is more or less robuster, and it offers extra highlighting which I will mention later. 
+The first requirement is indenting. Native indenting for javascript seems not (always) work. Even for this easy one:
 
-Unfortunately, it seems neither can handle all scenarios. At last I have to use jsbeautify to compensate. After using [maksimr/vim-jsbeautify](https://github.com/maksimr/vim-jsbeautify) for a short period, I switch to [Chiel92/vim-autoformat](https://github.com/Chiel92/vim-autoformat) which is more versatile and under active development.
+{% highlight javascript linenos %}
+
+gulp.task('flow', function() {/* <- from here stroke o or <cr> 
+<- cursor will be here, without indenting */
+});
+
+{% endhighlight %}
+
+[JavaScript-Indent](https://github.com/vim-scripts/JavaScript-Indent) and [pangloss/vim-javascript](https://github.com/pangloss/vim-javascript) are two frequently mentioned options. I prefer pangloss/vim-javascript since it's still under development, and it offers extra highlighting which I will mention later. 
+
+Unfortunately, it seems neither can handle all scenarios:
+
+{% highlight javascript linenos %}
+
+/* this is what real indenting is like */
+gulp.task('flow', function() {
+    return gulp.src('...')
+    .pipe(...
+}
+
+/* this is what should be like, since the line end has not a ; */
+gulp.task('flow', function() {
+    return gulp.src('...')
+        .pipe(...
+});
+
+{% endhighlight %}
+
+At last I have to use jsbeautify to compensate. After using [maksimr/vim-jsbeautify](https://github.com/maksimr/vim-jsbeautify) for a short period, I switch to [Chiel92/vim-autoformat](https://github.com/Chiel92/vim-autoformat) which is more versatile and under active development.
 
 > Not use plugin or use [pangloss/vim-javascript](https://github.com/pangloss/vim-javascript), combined with [Chiel92/vim-autoformat](https://github.com/Chiel92/vim-autoformat) to deal with complex cases.
 
@@ -88,7 +116,7 @@ YouCompleteMe itself is not capable to do javascipt semantic completion. But bot
 
 # Snippet(ing)
 
-[Ultisnips](https://github.com/SirVer/ultisnips) with [some pre bundled snippets](https://github.com/honza/vim-snippets) is very handy. Compared to [SnipMate](https://github.com/garbas/vim-snipmate) as my earlier option, it offers YouCompleteMe and neocomplete support, has no dependencies, and under more active development.
+[Ultisnips](https://github.com/SirVer/ultisnips) with [some pre bundled snippets](https://github.com/honza/vim-snippets) is very handy. Compared to [SnipMate](https://github.com/garbas/vim-snipmate) as my earlier option, it offers YouCompleteMe and neocomplete support, has no dependencies, and is under more active development.
 
 [emmet-vim](https://github.com/mattn/emmet-vim) is emmet support in vim. Emmet is a syntax like ```div.cname>ul+ul>li*3``` which will expand to
 
@@ -103,7 +131,9 @@ YouCompleteMe itself is not capable to do javascipt semantic completion. But bot
 </div>
 {% endhighlight %}
 
-Having Ultisnips I seldom use it, but when needed it's very handy to quickly produce a lot of boilplates.
+Magic!
+
+Well, to be honest, in most time I use Ultisnips and seldom cast emmet, but in some circumstance it makes producing large boilplates very enjoyable.
 
 > Use [Ultisnips](https://github.com/SirVer/ultisnips), maybe also [emmet-vim](https://github.com/mattn/emmet-vim)
 
