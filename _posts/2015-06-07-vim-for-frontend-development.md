@@ -74,7 +74,7 @@ Flow team said in an [issue](https://github.com/facebook/flow/issues/3) that the
 
 Some other tools to mention:
 
-[Closure compiler](https://developers.google.com/closure/compiler/) from Google supports type check given JsDoc style type annotations. However in my experiment I cannot produce warnings as strong as Flow. The Syntastic checker offers no opportunity to open the "checkType" option. Maybe I will do more experiments later. gjslint as linter of closure compiler doesn't contain type check. There's a promising project [tern-lint](https://github.com/angelozerr/tern-lint). Currently its functionalities are very limited. However, due to powerful type inference ability of TernJs, a validator upon it has great potential. 
+[Closure compiler](https://developers.google.com/closure/compiler/) from Google supports type check given JsDoc style type annotations. However in my experiment I cannot produce warnings as strong as Flow. The Syntastic checker offers no opportunity to open the "checkType" option. Maybe I will do more experiments later. gjslint as linter of closure compiler doesn't contain type check. There's a promising project [tern-lint](https://github.com/angelozerr/tern-lint), which validates code based on TernJs's type inference system. Currently its functionalities are still very limited. 
 
 > Use [Syntactic](https://github.com/scrooloose/syntastic) with jshint. The flow checker is highly recommended (need to install [Flow](https://github.com/facebook/flow)).
 
