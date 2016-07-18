@@ -1,0 +1,416 @@
+body {
+    background: #fbfbfb;
+    font-family: Verdana, "Microsoft YaHei", "Lantinghei SC", "兰亭黑-简", sans-serif;
+    padding-top: 0;
+    margin-top: 0;
+}
+
+body.sticky {
+    padding-top: 3.5in;
+}
+
+.banner {
+    z-index: -2;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 3.5in;
+    background-image: url("banner.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.banner::after {
+    content: '';
+    z-index: -1;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: #333;
+    background: linear-gradient(180deg, #333 0%, rgba(0, 0, 0, .4) 100%);
+    justify-content: space-around;
+    background-blend-mode: multiply;
+}
+
+body.sticky .banner {
+    display: none;
+}
+
+nav {
+    margin-bottom: 0;
+    margin-top: 0.13in;
+    font-size: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+nav > div {
+    width: 6.5in;
+}
+
+nav a {
+    display: inline-block;
+    width: 6em;
+    text-align: center;
+    line-height: 0.4in;
+    background-color: #fbfbfb;
+    opacity: 0.7;
+    vertical-align: bottom;
+    margin-left: 1px;
+    font-size: 12pt;
+}
+
+body:not(.sticky) nav a:last-child {
+    border-top-right-radius: 3px;
+}
+
+body:not(.sticky) nav a:first-child {
+    border-top-left-radius: 3px;
+}
+
+nav a.current {
+    opacity: 1;
+    margin-left: 0;
+    border-left: 1px solid #fbfbfb;
+    border-right: 1px solid #fbfbfb;
+}
+
+body:not(.sticky) nav a.current {
+    line-height: 0.55in;
+
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+}
+
+nav a.current+a {
+    margin-left: 0;
+}
+
+body.sticky nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin-top: 0;
+    z-index: 2;
+    background-color: #fbfbfb;
+    box-shadow: 0 1px 10px #aaa;
+}
+
+body.sticky nav a.current {
+    background-color: DodgerBlue;
+    color: #fbfbfb;
+}
+
+em {
+    font-style: normal;
+    color: #999;
+}
+
+/* use h1 in banner */
+h1 {
+    display: none;
+}
+
+.title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+body.sticky .title {
+    display: none;
+}
+
+.title > div {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(30,144,255, 0.7);
+    background-blend-mode: multiply;
+    border-bottom-left-radius:  10px;
+    border-bottom-right-radius: 10px;
+    padding-top: .2in;
+}
+
+.title h1 {
+    display: block;
+    margin-bottom: 0;
+    margin-top: 0.2in;
+    color: #fbfbfb;
+    font-size: 28pt;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.title h1, h2 {
+    /* some browsers cannot render bolder correctly */
+    font-family: Verdana, "Microsoft YaHei", "FZLTTHK--GBK1-0", "Lantinghei SC", "兰亭黑-简", sans-serif;
+}
+
+.title img {
+    box-sizing: border-box;
+    height: 1.2in;
+    width: 1.2in;
+    padding: 4px;
+    border: 1px solid #ccc;
+    background: #fbfbfb;
+    border-radius: 999px;
+}
+
+blockquote {
+    display: none;
+}
+
+.title blockquote p {
+    margin-top: 0;
+}
+
+.title blockquote {
+    display: block;
+    /* font-family: STKaiTi, KaiTi, serif; */
+    font-family: STFangSong, FangSong, serif;
+    font-size: 14pt;
+    line-height: 1.2;
+    text-align: center;
+    margin: 1.2em 1.2em;
+}
+
+.title blockquote em {
+    color: #fbfbfb;
+}
+
+#contact {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+    margin-top: 5em;
+    margin-bottom: 2em;
+    padding-bottom: 0.5em;
+}
+
+#contact em {
+    border-bottom: thin dashed #999;
+}
+
+section.level1 {
+    margin: auto;
+    width: 6.5in;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+h2 {
+    margin-top: 0.35in;
+    color: DodgerBlue;
+}
+
+h2:before {
+    content: '';
+    position: relative;
+    display: inline-block;
+    left: 0;
+    height: 1em;
+    bottom: -0.15em;
+    width: 1em;
+    margin-right: .3em;
+    background-color: DodgerBlue;
+}
+
+h2:after {
+    content: '';
+    position: relative;
+    display: block;
+    margin-top: .2em;
+    width: 100%;
+    height: 1px;
+    background-color: #ccc;
+}
+
+h3 {
+    color: #999;
+    font-size: 12pt;
+    font-weight: normal;
+    margin-top: 0;
+    margin-bottom: 0;
+    display: inline-block;
+    width: 20%;
+    vertical-align: baseline;
+}
+
+h3+* {
+    display: inline-block;
+    width: 70%;
+    vertical-align: top;
+    margin-top: 0;
+}
+
+h3+p+ol {
+    display: inline-block;
+    margin-left: 20%;
+    width: 70%;
+    vertical-align: top;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: -.4em;
+}
+
+ol {
+    padding-left: 1.7em;
+    margin-top: 0;
+}
+
+ul li ul {
+    list-style-type: disc;
+    margin-bottom: 2em;
+}
+
+li {
+    margin-top: 0em;
+    line-height: 22pt;
+}
+
+ul li ul li {
+    margin: .5em;
+}
+
+h2+ul>li::first-letter {
+    color: DodgerBlue;
+}
+
+section.work {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+section.work h2 {
+    width: 6.5in;
+}
+
+section.work > div {
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: auto;
+    width: 90%;
+    overflow: hidden;
+}
+
+section.work img {
+    height: 200px;
+    vertical-align: bottom;
+}
+
+section.work .higis {
+    background-color: #333;
+    border-bottom-right-radius: 120px;
+}
+
+section.work .higis img {
+    height: 250px;
+}
+
+section.work .design img {
+    height: 250px;
+}
+
+section.work .higis ul, section.work .oss ul {
+    padding-top: 50px;
+    margin-bottom: 0;
+    color: #fbfbfb;
+    font-family: Verdana, "Microsoft YaHei", "FZLTZHK--GBK1-0", "Lantinghei SC", "兰亭黑-简", sans-serif;
+}
+
+section.work .higis ul li, section.work .oss ul li {
+    list-style: square;
+}
+
+section.work .higis ul a, section.work .oss ul a {
+    text-decoration: underline;
+    color: #fbfbfb;
+}
+
+section.work .oss ul {
+    background-color: #333;
+    margin-left: 1em;
+    padding-left: 4em;
+    padding-right: 3em;
+}
+
+section.work .design {
+    display: inline-flex;
+    flex-direction: row;
+    height: 250px;
+}
+
+section.work .design > div {
+    box-shadow: 0 0 1px #e0e0e0;
+    padding: 0;
+    height: 230px;
+    z-index: 1;
+}
+
+@media (max-width: 720px) {
+    body {
+        padding: .3in;
+        padding-top: 0;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .banner ul {
+        left: 0;
+        font-size: 0;
+    }
+
+    .banner ul li {
+        font-size: 11pt;
+    }
+
+    h1 {
+        margin-bottom: 1.7in;
+    }
+
+    h3 {
+        display: block;
+        margin-bottom: 0.3em;
+        width: 100%;
+    }
+
+    h3+p+ol {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    #container {
+        width: 90%;
+        padding: 0;
+    }
+
+    h3+* {
+        display: block;
+        width: 100%;
+        vertical-align: top;
+        margin-top: 0;
+    }
+}

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link rel="stylesheet" href="resume.css">
+  <script type="text/javascript" charset="utf-8">
+  function createSwitcher(allList, on, off) {
+      return function (onList) {
+          for (var i in allList) {
+              off(document.getElementById(allList[i]));
+          }
+          for (var i in onList) {
+              on(document.getElementById(onList[i]));
+          }
+      }
+  }
+  
+  function prop(key, list) {
+      return Array.prototype.map.call(list, function(obj) {
+          return obj[key];
+      })
+  }
+  
+  document.addEventListener('DOMContentLoaded', function () {
+      var links = document.querySelectorAll('nav a');
+      var sections = document.querySelectorAll('section.level2');
+      var scrollY = 294;
+  
+      var switchPanel = createSwitcher(
+              prop('id', sections),
+              function (item) {
+                  item.style.display = '';
+              },
+              function (item) {
+                  item.style.display = 'none';
+              }
+          );
+  
+      var switchLink = createSwitcher(
+              prop('id', links),
+              function (item) {
+                  item.classList.add('current');
+                  if (window.scrollY > scrollY) {
+                      window.scrollTo(0, scrollY);
+                  }
+              },
+              function (item) {
+                  item.classList.remove('current');
+              }
+          );
+  
+      window.togglePanel = function(e, panels) {
+          switchLink([e.id]);
+          switchPanel(panels);
+      }
+  
+      var bannerHeight = document.getElementById('banner').clientHeight;
+      var navHeight = Math.min.apply(null, prop('clientHeight', links));
+      var stickyMinHeight = (window.innerHeight + bannerHeight - navHeight) + 'px';
+      document.body.style.minHeight = stickyMinHeight;
+  
+      window.addEventListener("scroll", function() {
+          if(window.scrollY >= scrollY) {
+              document.body.classList.add('sticky');
+          }
+          else {
+              document.body.classList.remove('sticky');
+          }
+      });
+  
+      links[2].click();
+  });
+  </script>
+</head>
+<body>
+<div id="banner" class="banner">
+</div>
+<div class="title">
+    <div>
+        <img src="photo-square.jpg" alt=""/>
+        <h1>杨岸然</h1>
+        <blockquote>
+            <em>
+                软件开发|地理信息|绘画|设计
+            </em>
+        </blockquote>
+    </div>
+</div>
+<nav>
+    <div>
+        <a id="skill" href="javascript:void(0);" onclick="return togglePanel(this, ['技能'])">技能</a>
+        <a id="history" href="javascript:void(0);" onclick="return togglePanel(this, ['教育经历', '项目经历'])">简历</a>
+        <a id="work" href="javascript:void(0);" onclick="return togglePanel(this, ['开源项目', 'higis', '设计', '绘画'])">作品</a>
+    </div>
+</nav>
+<section id="杨岸然" class="level1">
+<h1>杨岸然</h1>
+<blockquote>
+<p><em>1988年7月生于安徽，易沟通，善学习，富有创造力；具有全栈开发能力，可独立完成架构、数据库设计、后端开发和前端开发等一系列工作；在地理信息领域有深入研究，尤擅时空数据分析；擅长绘画。</em></p>
+</blockquote>
+<section id="教育经历" class="level2">
+<h2>教育经历</h2>
+<section id="section" class="level3">
+<h3>2010 -</h3>
+<p>国防科学技术大学<br />
+<em>工学博士在读（提前攻博），地理信息系统专业</em></p>
+</section>
+<section id="section-1" class="level3">
+<h3>2014 - 2015</h3>
+<p>海德堡大学，德国<br />
+<em>GIScience Research Group，公派学术访问一年</em></p>
+</section>
+<section id="section-2" class="level3">
+<h3>2006 - 2010</h3>
+<p>北京大学<br />
+<em>理学学士，地理信息系统专业，GPA 3.5/4</em></p>
+</section>
+</section>
+<section id="技能" class="level2">
+<h2>技能</h2>
+<section id="计算机" class="level3">
+<h3>计算机</h3>
+<ul>
+<li>网络应用程序开发 - JavaScript/CSS/HTML</li>
+<li>地理信息服务开发 - Python/C++</li>
+<li>高性能服务器配置管理 - Linux/Docker/Bash</li>
+<li>软件自动化验证与测试 - Tsung/PAT/Cucumber</li>
+<li>时空数据分析 - R/C++/C/SQL</li>
+</ul>
+</section>
+<section id="学术研究" class="level3">
+<h3>学术研究</h3>
+<ul>
+<li>长尾数据统计分析</li>
+<li>通信顺序进程（CSP）</li>
+</ul>
+</section>
+<section id="其它" class="level3">
+<h3>其它</h3>
+<ul>
+<li>平面设计，绘画</li>
+</ul>
+</section>
+</section>
+<section id="项目经历" class="level2">
+<h2>项目经历</h2>
+<section id="section-3" class="level3">
+<h3>2014 -</h3>
+<p>时空数据分析 - 基于志愿者地理信息（VGI）的历史贡献数据</p>
+</section>
+<section id="section-4" class="level3">
+<h3>2011 -</h3>
+<p>高性能地理信息系统</p>
+<ol>
+<li>高性能地理计算流程化调度引擎 <em>负责人</em></li>
+<li>交互设计及部分前端界面实现 <em>负责人</em></li>
+<li>绘制引擎与数据引擎 <em>选型与初版实现</em></li>
+<li>自动化部署工具 <em>负责人</em></li>
+<li>自动化负载与性能测试 <em>负责人</em></li>
+</ol>
+</section>
+<section id="section-5" class="level3">
+<h3>2008 - 2010</h3>
+<p>基于入链的景区影响力估计模型</p>
+</section>
+</section>
+<section id="发表论文" class="level2">
+<h2>发表论文</h2>
+<ul>
+<li>A. Yang, H. Fan, N. Jing, Y. Sun, and A. Zipf, &quot;Temporal Analysis on Contribution Inequality in OpenStreetMap: A Comparative Study for Four Countries&quot;, ISPRS International Journal of Geo-Information, vol. 5, no. 1, p. 5, Jan. 2016.</li>
+<li>A. Yang, H. Fan, and N. Jing, &quot;Amateur or professional: Assessing the expertise of major contributors in OpenStreetMap based on contributing behaviors&quot;, ISPRS International Journal of Geo-Information, vol. 5, no. 2, p. 21, 2016.</li>
+<li>A. Yang, L. Liu, L. Chen, and N. Jing, &quot;Geographical Workflow System over HPC Clusters Based on MPI&quot;, in Proceedings of the 12th International Conference on GeoComputation, Wuhan, P.R.China, 2013</li>
+</ul>
+</section>
+</section>
+<section id="higis" class="work level2">
+    <h2>HiGIS: 高性能地理信息系统</h2>
+    <div class="higis">
+        <img src="higis-single-pic.png" alt=""/>
+        <ul>
+            <li>开源控件库 <a href="http://yarray.github.io/hui/demo/" target="_blank">http://yarray.github.io/hui/demo/</a></li>
+            <li>系统概念 <a href="http://www.geocomputation.org/2013/papers/26.pdf" target="_blank">When GIS Meets HPC</a></li>
+            <li>计算引擎概念 <a href="https://www.researchgate.net/publication/303805707_Geographical_Workflow_System_over_HPC_Clusters_Based_on_MPI" target="_blank">Geographical Workflow System ...</a></li>
+        </ul>
+    </div>
+</section>
+<section id="绘画" class="work level2">
+    <h2>绘画</h2>
+    <div class="painting">
+        <img src="painting-001.jpg" alt=""/>
+        <img src="painting-004.jpg" alt=""/>
+        <img src="painting-002.jpg" alt=""/>
+        <img src="painting-003.jpg" alt=""/>
+        <img src="painting-005.jpg" alt=""/>
+    </div>
+</section>
+<section id="设计" class="work level2">
+    <h2>平面设计</h2>
+    <div class="design">
+        <div class="booklet">
+            <img src="higis-booklet.png" alt=""/>
+        </div>
+        <div class="other">
+            <img src="other-design.png" alt=""/>
+        </div>
+    </div>
+</section>
+<section id="开源项目" class="work level2">
+    <h2>开源项目</h2>
+    <div class="oss">
+        <img src="avipost.png" alt=""/>
+        <ul>
+            <li>集群管理工具 <a href="https://github.com/yarray/fake-xcat" target="_blank">fake-xCAT</a></li>
+            <li>简历生成工具 <a href="https://github.com/yarray/resume" target="_blank">resume</a></li>
+            <li>电子明信片 <a href="https://github.com/yarray/AviPost.web" target="_blank">AviPost</a></li>
+        </ul>
+    </div>
+</section>
+<div id="contact">
+    <em>© 2016 杨岸然&nbsp;|&nbsp;anran.yang.china@gmail.com</em>
+</div>
+</body>
+</html>
