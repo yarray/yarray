@@ -164,14 +164,14 @@ body.sticky .title {
 }
 
 blockquote {
-    display: none;
+    margin: .6in 0;
 }
 
-.title blockquote p {
-    margin-top: 0;
+blockquote em {
+    color: #333;
 }
 
-.title blockquote {
+.title em {
     display: block;
     /* font-family: STKaiTi, KaiTi, serif; */
     font-family: STFangSong, FangSong, serif;
@@ -179,13 +179,10 @@ blockquote {
     line-height: 1.2;
     text-align: center;
     margin: 1.2em 1.2em;
-}
-
-.title blockquote em {
     color: #fbfbfb;
 }
 
-#contact {
+.footnote {
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -195,11 +192,11 @@ blockquote {
     padding-bottom: 0.5em;
 }
 
-#contact em {
+.footnote em {
     border-bottom: thin dashed #999;
 }
 
-section.level1 {
+section.level1, section.about {
     margin: auto;
     width: 6.5in;
     padding: 0;
@@ -299,6 +296,7 @@ h2+ul>li::first-letter {
 section.work {
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
     align-items: center;
     width: 100%;
 }
@@ -376,6 +374,12 @@ section.work .design > div {
         padding-top: 0;
         width: 100%;
         box-sizing: border-box;
+        font-size: 10pt;
+        margin: 0;
+    }
+
+    section.level1, section.work, section.about {
+        width: 100%;
     }
 
     .banner ul {
@@ -384,7 +388,7 @@ section.work .design > div {
     }
 
     .banner ul li {
-        font-size: 11pt;
+        font-size: 10pt;
     }
 
     h1 {
@@ -412,5 +416,22 @@ section.work .design > div {
         width: 100%;
         vertical-align: top;
         margin-top: 0;
+    }
+
+    section.work, #work {
+        display: none;
+    }
+
+    .title {
+        height: 275px;
+    }
+
+    .title img {
+        width: 1in;
+        height: 1in;
+    }
+
+    nav > div {
+        width: 100%;
     }
 }

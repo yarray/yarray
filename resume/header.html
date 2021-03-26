@@ -1,0 +1,79 @@
+<script type="text/javascript" charset="utf-8">
+function createSwitcher(allList, on, off) {
+    return function (onList) {
+        for (var i in allList) {
+            off(document.getElementById(allList[i]));
+        }
+        for (var i in onList) {
+            on(document.getElementById(onList[i]));
+        }
+    }
+}
+
+function prop(key, list) {
+    return Array.prototype.map.call(list, function(obj) {
+        return obj[key];
+    })
+}
+
+function processMisc() {
+    var bq = document.querySelector('section.level1 > blockquote');
+    var intro = document.querySelector('section.blockquote');
+    bq.parentElement.removeChild(bq);
+    intro.appendChild(bq);
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    processMisc();
+
+    var links = document.querySelectorAll('nav a');
+    var sections = document.querySelectorAll('section.level2');
+    var scrollY = 294;
+
+    var switchPanel = createSwitcher(
+            prop('id', sections),
+            function (item) {
+                item.style.display = '';
+            },
+            function (item) {
+                item.style.display = 'none';
+            }
+        );
+
+    var switchLink = createSwitcher(
+            prop('id', links),
+            function (item) {
+                item.classList.add('current');
+                if (window.scrollY > scrollY) {
+                    window.scrollTo(0, scrollY);
+                }
+            },
+            function (item) {
+                item.classList.remove('current');
+            }
+        );
+
+    window.switchPanel = switchPanel;
+
+    window.togglePanel = function(e, panels) {
+        switchLink([e.id]);
+        switchPanel(panels);
+    }
+
+    var bannerHeight = document.getElementById('banner').clientHeight;
+    var navHeight = Math.min.apply(null, prop('clientHeight', links));
+    var stickyMinHeight = (window.innerHeight + bannerHeight - navHeight) + 'px';
+    document.body.style.minHeight = stickyMinHeight;
+
+    window.addEventListener("scroll", function() {
+        if(window.scrollY >= scrollY) {
+            document.body.classList.add('sticky');
+        }
+        else {
+            document.body.classList.remove('sticky');
+        }
+    });
+
+    links[1].click();
+});
+</script>

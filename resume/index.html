@@ -1,23 +1,15 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html>
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>杨岸然简历</title>
-  <style>
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
-  </style>
-  <link rel="stylesheet" href="resume.css" />
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
   <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
+  <link rel="stylesheet" href="resume.css">
   <script type="text/javascript" charset="utf-8">
   function createSwitcher(allList, on, off) {
       return function (onList) {
@@ -29,27 +21,27 @@
           }
       }
   }
-
+  
   function prop(key, list) {
       return Array.prototype.map.call(list, function(obj) {
           return obj[key];
       })
   }
-
+  
   function processMisc() {
       var bq = document.querySelector('section.level1 > blockquote');
       var intro = document.querySelector('section.blockquote');
       bq.parentElement.removeChild(bq);
       intro.appendChild(bq);
   }
-
+  
   document.addEventListener('DOMContentLoaded', function () {
       processMisc();
-
+  
       var links = document.querySelectorAll('nav a');
       var sections = document.querySelectorAll('section.level2');
       var scrollY = 294;
-
+  
       var switchPanel = createSwitcher(
               prop('id', sections),
               function (item) {
@@ -59,7 +51,7 @@
                   item.style.display = 'none';
               }
           );
-
+  
       var switchLink = createSwitcher(
               prop('id', links),
               function (item) {
@@ -72,19 +64,19 @@
                   item.classList.remove('current');
               }
           );
-
+  
       window.switchPanel = switchPanel;
-
+  
       window.togglePanel = function(e, panels) {
           switchLink([e.id]);
           switchPanel(panels);
       }
-
+  
       var bannerHeight = document.getElementById('banner').clientHeight;
       var navHeight = Math.min.apply(null, prop('clientHeight', links));
       var stickyMinHeight = (window.innerHeight + bannerHeight - navHeight) + 'px';
       document.body.style.minHeight = stickyMinHeight;
-
+  
       window.addEventListener("scroll", function() {
           if(window.scrollY >= scrollY) {
               document.body.classList.add('sticky');
@@ -93,7 +85,7 @@
               document.body.classList.remove('sticky');
           }
       });
-
+  
       links[1].click();
   });
   </script>
@@ -118,7 +110,6 @@
         <a id="about" href="javascript:void(0);" onclick="return togglePanel(this, ['自述', '联系方式'])">关于我</a>
     </div>
 </nav>
-
 <section id="杨岸然" class="level1">
 <h1>杨岸然</h1>
 <blockquote>
@@ -129,7 +120,7 @@
 <section id="section" class="level3">
 <h3>2010 - 2016</h3>
 <p>国防科学技术大学<br />
-<em>工学博士（提前攻博），研究方向：高性能地理计算，众源地理信息</em></p>
+<em>工学博士（提前攻博），研究方向：高性能地理计算</em></p>
 </section>
 <section id="section-1" class="level3">
 <h3>2014 - 2015</h3>
@@ -139,7 +130,7 @@
 <section id="section-2" class="level3">
 <h3>2006 - 2010</h3>
 <p>北京大学<br />
-<em>理学学士，地理信息系统专业，专业排名第四，校级优秀毕业生</em></p>
+<em>理学学士，地理信息系统专业，GPA 3.5/4</em></p>
 </section>
 </section>
 <section id="技能" class="level2">
@@ -197,9 +188,9 @@
 <section id="发表论文" class="level2">
 <h2>发表论文</h2>
 <ul>
-<li>A. Yang, H. Fan, N. Jing, Y. Sun, and A. Zipf, “Temporal Analysis on Contribution Inequality in OpenStreetMap: A Comparative Study for Four Countries”, ISPRS International Journal of Geo-Information, vol. 5, no. 1, p. 5, Jan. 2016.</li>
-<li>A. Yang, H. Fan, and N. Jing, “Amateur or professional: Assessing the expertise of major contributors in OpenStreetMap based on contributing behaviors”, ISPRS International Journal of Geo-Information, vol. 5, no. 2, p. 21, 2016.</li>
-<li>A. Yang, L. Liu, L. Chen, and N. Jing, “Geographical Workflow System over HPC Clusters Based on MPI”, in Proceedings of the 12th International Conference on GeoComputation, Wuhan, P.R.China, 2013</li>
+<li>A. Yang, H. Fan, N. Jing, Y. Sun, and A. Zipf, &quot;Temporal Analysis on Contribution Inequality in OpenStreetMap: A Comparative Study for Four Countries&quot;, ISPRS International Journal of Geo-Information, vol. 5, no. 1, p. 5, Jan. 2016.</li>
+<li>A. Yang, H. Fan, and N. Jing, &quot;Amateur or professional: Assessing the expertise of major contributors in OpenStreetMap based on contributing behaviors&quot;, ISPRS International Journal of Geo-Information, vol. 5, no. 2, p. 21, 2016.</li>
+<li>A. Yang, L. Liu, L. Chen, and N. Jing, &quot;Geographical Workflow System over HPC Clusters Based on MPI&quot;, in Proceedings of the 12th International Conference on GeoComputation, Wuhan, P.R.China, 2013</li>
 </ul>
 </section>
 </section>
@@ -238,12 +229,11 @@
 <section id="开源项目" class="work level2">
     <h2>开源项目</h2>
     <div class="oss">
-        <img src="spade.png" alt=""/>
-        <img src="raka.png" alt=""/>
+        <img src="avipost.png" alt=""/>
         <ul>
-            <li>数据处理流程工具 <a href="https://github.com/yarray/raka" target="_blank">raka</a></li>
-            <li>轻量FRP程序库 <a href="https://github.com/yarray/frpy" target="_blank">frpy</a></li>
-            <li>贪吃蛇变体游戏 <a href="https://github.com/yarray/Spade" target="_blank">Spade</a></li>
+            <li>集群管理工具 <a href="https://github.com/yarray/fake-xcat" target="_blank">fake-xCAT</a></li>
+            <li>简历生成工具 <a href="https://github.com/yarray/resume" target="_blank">resume</a></li>
+            <li>电子明信片 <a href="https://github.com/yarray/AviPost.web" target="_blank">AviPost</a></li>
         </ul>
     </div>
 </section>

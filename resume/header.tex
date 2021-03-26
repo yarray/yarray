@@ -1,0 +1,54 @@
+\usepackage[top=1in, bottom=1in, left=1.1in, right=1.1in]{geometry}
+\usepackage{tgpagella}
+\usepackage[dvipsnames]{xcolor}
+\ifxetex
+\usepackage{xeCJK}
+\setCJKmainfont[
+    BoldFont={SourceHanSerifSC-Bold}, 
+    % BoldFont={FZLTZHK--GBK1-0}, 
+    ItalicFont={STKaiti},
+    % BoldItalicFont={HYQiHei-EES}
+    BoldItalicFont={STKaiti}
+    % BoldItalicFont={FZLTXHK--GBK1-0}
+% ]{STSongti-SC-Regular}
+]{SourceHanSerifSC-Regular}
+  %\setmainfont[Mapping=tex-text]{TeX Gyre Pagella}
+\renewcommand{\baselinestretch}{1.5} % Chinsese should have larger line height
+\fi
+
+\setmainfont[
+    BoldFont={TimesNewRomanPS-BoldMT}, 
+    ItalicFont={TimesNewRomanPS-ItalicMT}
+]{TimesNewRomanPSMT}
+\usepackage{titlesec}
+\titleformat{\section}{\Huge\bfseries\itshape}{\thesection}{1em}{}
+\titlespacing{\section}{0pt}{-2.5em}{2.3em}
+% \titleformat{\subsection}{\huge\bfseries}{\thesubsection}{2em}{\textcolor{NavyBlue}{\titlerule[0.1em]\vspace{-0.5em}\\}}
+\titleformat{\subsection}{\huge\bfseries}{\thesubsection}{2em}{}
+\titleformat{\subsubsection}
+    {}{\thesubsubsection}{1em}{}
+\titlespacing{\subsubsection}{0pt}{0pt}{-2.278em}
+
+%\usepackage{multicol}
+\pagestyle{empty}
+\hyphenation{Media-Wiki}
+\setlength{\leftskip}{9em}
+\setlength{\hangindent}{2em}
+
+\usepackage{enumitem}
+\setlist[1]{leftmargin=8.53em, label=, itemindent=-1em}
+\setenumerate[1]{leftmargin=10.25em, label=\tiny$\blacktriangleright$, noitemsep, nosep}
+
+% from http://tex.stackexchange.com/a/29796/16139
+\newsavebox{\zerobox}
+\newenvironment{nospace}
+  {\par\edef\theprevdepth{\the\prevdepth}\nointerlineskip
+   \setbox\zerobox=\vtop to 0pt\bgroup
+   \hrule height0pt\kern\dimexpr\baselineskip-\topskip\relax
+  }
+  {\par\vss\egroup\ht\zerobox=0pt \wd\zerobox=0pt \dp\zerobox=0pt
+   \box\zerobox}
+
+\renewenvironment{quote}%
+  {\list{}{\setlength{\rightmargin}{.4\textwidth}}\item[]}%
+  {\endlist}
